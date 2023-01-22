@@ -10,5 +10,5 @@ export const drawSquare = async (args: string[]) => {
     await mouse.move(down(width));
     await mouse.releaseButton(Button.LEFT);
 
-    console.log(`Square is drawn with width - ${width}`)
+    return `Square is drawn with width - ${width}`
 }

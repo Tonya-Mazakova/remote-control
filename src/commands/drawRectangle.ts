@@ -11,5 +11,5 @@ export const drawRectangle = async(args: string[]) => {
     await mouse.move(down(length));
     await mouse.releaseButton(Button.LEFT);
 
-    console.log(`Rectangle is drawn with width - ${width} and length - ${length}`)
+    return `Rectangle is drawn with width - ${width} and length - ${length}`
 }

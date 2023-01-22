@@ -14,7 +14,8 @@ export const runWebSocketServer = (port: number) => {
 
         duplex.on('data', async (command: string) => {
             try {
-                await runCommand(command)
+                const result = await runCommand(command)
+                duplex.write(result)
 
             } catch (e: any) {
                 console.error(JSON.stringify(e));
