@@ -1,8 +1,16 @@
-import { mouse, left, up, right, down } from '@nut-tree/nut-js'
+import { drawSquare } from "./drawSquare";
+import { drawRectangle } from "./drawRectangle";
+import { drawCircle } from "./drawCircle";
 
 export const runCommand = async (command: string) => {
-    await mouse.move(left(500));
-    await mouse.move(up(500));
-    await mouse.move(right(500));
-    await mouse.move(down(500))
+    const commandArr = command.split(" ");
+    const [currentCommand, ...args] = commandArr;
+
+    const commands = {
+        draw_square: drawSquare,
+        draw_rectangle: drawRectangle,
+        draw_circle: drawCircle
+    }
+
+    commands[currentCommand as keyof typeof commands].call(this, args);
 }
