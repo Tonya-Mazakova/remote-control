@@ -6,6 +6,7 @@ import { moveMouseUp } from "./moveMouseUp";
 import { moveMouseDown } from "./moveMouseDown";
 import { moveMouseLeft } from "./moveMouseLeft";
 import { moveMouseRight } from "./moveMouseRight";
+import { printScreen } from "./printScreen";
 
 export const runCommand = async (command: string) => {
     const commandArr = command.split(" ");
@@ -19,8 +20,13 @@ export const runCommand = async (command: string) => {
         mouse_up: moveMouseUp,
         mouse_down: moveMouseDown,
         mouse_left: moveMouseLeft,
-        mouse_right: moveMouseRight
+        mouse_right: moveMouseRight,
+        prnt_scrn: printScreen
     };
 
-    return await commands[currentCommand as keyof typeof commands](args);
+    try {
+        return await commands[currentCommand as keyof typeof commands](args);
+    } catch (e) {
+        console.error(JSON.stringify(e));
+    }
 };
