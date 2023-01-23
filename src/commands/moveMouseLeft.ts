@@ -5,5 +5,8 @@ export const moveMouseLeft = async (args: string[]) => {
 
     await mouse.move(left(offset))
 
-    return `mouse moved left ${offset} px`
+    const msg = `mouse moved left ${offset} px`
+
+    console.log(msg);
+    return msg
 }

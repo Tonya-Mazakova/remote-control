@@ -5,5 +5,8 @@ export const moveMouseUp = async (args: string[]) => {
 
     await mouse.move(up(offset))
 
-    return `mouse moved up ${offset} px`
+    const msg = `mouse moved up ${offset} px`
+
+    console.log(msg)
+    return msg
 }
