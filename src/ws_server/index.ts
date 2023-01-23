@@ -25,5 +25,10 @@ export const runWebSocketServer = (port: number) => {
         ws.on('close', () => {
             console.log('WebSocket client is disconnected');
         });
-    })
+    });
+
+    process.on('SIGINT', () => {
+        wss.close();
+        process.exit(0);
+    });
 }
